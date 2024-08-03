@@ -1,0 +1,255 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #181a1b;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #E8E8FF; */
+}
+
+body {
+  --s: 25vmin;
+  --p: calc(var(--s) / 2);
+  --c1: pink;
+  --c2: dodgerblue;
+  --c3: white;
+  --bg: var(--c3);
+  --d: 8000ms;
+  --e: cubic-bezier(0.76, 0, 0.24, 1);
+
+  background-color: var(--bg);
+  background-image: linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+  background-size: var(--s) var(--s);
+  background-position: calc(var(--p) * 1) calc(var(--p) * 0),
+    calc(var(--p) * -1) calc(var(--p) * 1),
+    calc(var(--p) * 1) calc(var(--p) * -1),
+    calc(var(--p) * -1) calc(var(--p) * 0);
+  animation: color var(--d) var(--e) infinite,
+    position var(--d) var(--e) infinite;
+}
+
+@keyframes color {
+  0%,
+  25% {
+    --bg: var(--c3);
+  }
+  26%,
+  50% {
+    --bg: var(--c1);
+  }
+  51%,
+  75% {
+    --bg: var(--c3);
+  }
+  76%,
+  100% {
+    --bg: var(--c2);
+  }
+}
+
+@keyframes position {
+  0% {
+    background-position: calc(var(--p) * 1) calc(var(--p) * 0),
+      calc(var(--p) * -1) calc(var(--p) * 1),
+      calc(var(--p) * 1) calc(var(--p) * -1),
+      calc(var(--p) * -1) calc(var(--p) * 0);
+  }
+  25% {
+    background-position: calc(var(--p) * 1) calc(var(--p) * 4),
+      calc(var(--p) * -1) calc(var(--p) * 5),
+      calc(var(--p) * 1) calc(var(--p) * 3),
+      calc(var(--p) * -1) calc(var(--p) * 4);
+  }
+  50% {
+    background-position: calc(var(--p) * 3) calc(var(--p) * 8),
+      calc(var(--p) * -3) calc(var(--p) * 9),
+      calc(var(--p) * 2) calc(var(--p) * 7),
+      calc(var(--p) * -2) calc(var(--p) * 8);
+  }
+  75% {
+    background-position: calc(var(--p) * 3) calc(var(--p) * 12),
+      calc(var(--p) * -3) calc(var(--p) * 13),
+      calc(var(--p) * 2) calc(var(--p) * 11),
+      calc(var(--p) * -2) calc(var(--p) * 12);
+  }
+  100% {
+    background-position: calc(var(--p) * 5) calc(var(--p) * 16),
+      calc(var(--p) * -5) calc(var(--p) * 17),
+      calc(var(--p) * 5) calc(var(--p) * 15),
+      calc(var(--p) * -5) calc(var(--p) * 16);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  body {
+    animation: none;
+  }
+}
+
+.chat-container {
+  width: 60%;
+  height: 80%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 12px;
+  background-color: #f8f8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.display {
+  height: 90%;
+  width: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.info {
+  width: 20%;
+  height: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #dcdcdc;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 12px;
+}
+
+.profilePic {
+  width: 175px;
+  height: 175px;
+  border: none;
+  border-radius: 50%;
+  margin: 20px 0 20px 0;
+}
+
+.profilePic svg {
+  border-radius: 50%;
+}
+
+.msgSVG {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+}
+
+.msg-area {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  margin: 10px 0 10px 0;
+}
+
+.message{
+  width: auto;
+  max-width: 250px;
+  max-inline-size: 70%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 15px;
+  background-color: dodgerblue;
+  color: white;
+  display: flex;
+}
+
+.message p {
+  margin: 0;
+  word-break: break-word;
+}
+
+.left {
+  float: left;
+  clear: both;
+}
+
+.right {
+  float: right;
+  clear: both;
+}
+
+.send-msg {
+  width: 100%;
+  height: 90px;
+}
+
+.sendForm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inp {
+  width: 90%;
+  height: 50px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgb(249, 165, 179);
+  color: #181a1b;
+}
+
+.inp::placeholder{
+  color: #181a1b;
+}
+
+.copyButton {
+  margin: 20px;
+}
+
+.copyButton > button {
+  padding: 8px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+.cpyBtn:hover {
+  cursor: pointer;
+}
+
+.btn {
+  width: 65px;
+  height: 50px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(249, 165, 179);
+  font-size: 25px;
+}
+
+.btn:hover {
+  transition-duration: 0.2s;
+  cursor: pointer;
+  background-color: rgb(254, 112, 136);
+}
+
+.btn:not(:hover) {
+  transition-duration: 0.2s;
+  background-color: rgb(249, 165, 179);
+}

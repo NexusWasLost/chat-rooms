@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #181a1b;
+}
+
+body, .heading, .mainForm, .nickname, .host, .join{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+body{
+    width: 100wv;
+    height: 100vh;
+    max-height: 100vh;
+    justify-content: space-evenly;
+    overflow: hidden;
+    /* background-color: #E8E8FF; */
+}
+
+
+body {
+    --s: 25vmin;
+    --p: calc(var(--s) / 2);
+    --c1: pink;
+    --c2: dodgerblue;
+    --c3: white;
+    --bg: var(--c3);
+    --d: 4000ms;
+    --e: cubic-bezier(0.76, 0, 0.24, 1);
+    
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+    background-size: var(--s) var(--s);
+    background-position: 
+      calc(var(--p) *  1) calc(var(--p) *  0), 
+      calc(var(--p) * -1) calc(var(--p) *  1), 
+      calc(var(--p) *  1) calc(var(--p) * -1), 
+      calc(var(--p) * -1) calc(var(--p) *  0);
+    animation: 
+      color var(--d) var(--e) infinite,
+      position var(--d) var(--e) infinite;
+  }
+  
+  @keyframes color {
+    0%, 25% {
+      --bg: var(--c3);
+    }
+    26%, 50% {
+      --bg: var(--c1);
+    }
+    51%, 75% {
+      --bg: var(--c3);
+    }
+    76%, 100% {
+      --bg: var(--c2);
+    }
+  }
+  
+  @keyframes position {
+    0% {
+      background-position: 
+        calc(var(--p) *  1) calc(var(--p) *  0), 
+        calc(var(--p) * -1) calc(var(--p) *  1), 
+        calc(var(--p) *  1) calc(var(--p) * -1), 
+        calc(var(--p) * -1) calc(var(--p) *  0);
+    }
+    25% {
+      background-position: 
+        calc(var(--p) *  1) calc(var(--p) *  4), 
+        calc(var(--p) * -1) calc(var(--p) *  5), 
+        calc(var(--p) *  1) calc(var(--p) *  3), 
+        calc(var(--p) * -1) calc(var(--p) *  4);
+    }
+    50% {
+      background-position: 
+        calc(var(--p) *  3) calc(var(--p) * 8), 
+        calc(var(--p) * -3) calc(var(--p) * 9), 
+        calc(var(--p) *  2) calc(var(--p) * 7), 
+        calc(var(--p) * -2) calc(var(--p) * 8);
+    }
+    75% {
+      background-position: 
+        calc(var(--p) *  3) calc(var(--p) * 12), 
+        calc(var(--p) * -3) calc(var(--p) * 13), 
+        calc(var(--p) *  2) calc(var(--p) * 11), 
+        calc(var(--p) * -2) calc(var(--p) * 12);
+    }
+    100% {    
+      background-position: 
+        calc(var(--p) *  5) calc(var(--p) * 16), 
+        calc(var(--p) * -5) calc(var(--p) * 17), 
+        calc(var(--p) *  5) calc(var(--p) * 15), 
+        calc(var(--p) * -5) calc(var(--p) * 16);
+    }
+  }
+  
+  @media (prefers-reduced-motion) {
+    body {
+      animation: none;
+    }
+  }
+
+.heading{
+    margin-bottom: 50px;
+}
+
+h1{
+    font-size: 3.5rem;
+}
+
+.nicknameInp{
+    width: 80%;
+    height: 50px;
+    border-radius: 8px;
+    margin: 10px 0 10px 0;
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.mainForm{
+    width: 30%;
+    justify-content: center;   
+}
+
+.host, .join{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.hostButton, .joinButton{
+    width: 40%;
+    height: 50px;
+    font-size: larger;
+    border: none;
+    border-radius: 200px;
+    background-color: rgb(249, 165, 179);
+}
+
+.roomid{
+    width: 40%;
+    height: 50px;
+    border-radius: 8px;
+    margin: 10px 0 10px 0;
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.hostButton:hover, .joinButton:hover{
+    cursor: pointer;
+}
+
+.tagLine{
+    padding-left: 100px;
+}
