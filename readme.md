@@ -16,11 +16,6 @@ A Chat Application built using WebSockets and NodeJS
 - Ensures complete privacy and safety by not storing any messages on the server.
 - Features an easy-to-navigate UI for a smooth chatting experience.
 
-
-## Open via Link
-
-YET TO BE DEPLOYED
-
 ## Installation
 
 If you want to run it locally:
@@ -34,8 +29,8 @@ Make Sure You have Node, NPM and MongoDB already installed !
 
 1. **Clone the Repository:**
 ```bash
-  git clone
-  cd
+  git clone https://github.com/0x3DNexus/chat-rooms.git
+  cd chat-rooms
 ```
 2. **Install all the dependencies:**
 ```bash
@@ -46,6 +41,8 @@ Make Sure You have Node, NPM and MongoDB already installed !
 ```bash
   npm start
 ``` 
+
+The server runs on PORT 3000 !
 
 ## Web Sockets and Socket.io
 Web Sockets are responsible for establishing a full duplex connection between server and client which allows bidirectional communication flow and sending data over TCP protocol.
