@@ -38,7 +38,7 @@ app.get('/info', async (req, res) =>{
     try{
         let nickname = req.cookies.nickname;
         let roomId = req.cookies.roomId;
-
+       
         //clear cookies
         res.clearCookie('nickname');
         res.clearCookie('roomId');
@@ -123,18 +123,14 @@ io.on('connection', socket =>{
         console.log(`A client with client id : ${socket.id} has disconnected`);
         socket.broadcast.to(roomId).emit('left-user', nickname);
 
-        //set a timeout counter to ensure the room is inactive !
-        const ROOM_INACTIVITY_DELAY = 15000;
-        setTimeout( async () => {
-            const room = io.sockets.adapter.rooms.get(roomId);
-            let roomSize = 0;
-            if (room) roomSize = room.size;
 
-            if (roomSize === 0) {
-                await Room.findOneAndDelete({ roomId });
-                console.log(`Room ${roomId} deleted from database due to inactivity`);
-            }
-        }, ROOM_INACTIVITY_DELAY);
+        const room = io.sockets.adapter.rooms.get(roomId);
+        let roomSize = 0;
+        if (room) roomSize = room.size;
+
+        if (roomSize === 0) {
+            await Room.findOneAndDelete({ roomId });
+            console.log(`Room ${roomId} deleted from database`);
+        }
     })    
-    
 })
