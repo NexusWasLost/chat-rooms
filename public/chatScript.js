@@ -44,6 +44,11 @@ async function getAvatar() {
     const avatar = await getAvatar();
 })();
 
+function scrollToBottom(){
+    const chatContainer = document.querySelector('.msg-area');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
 let messageArea = document.querySelector('.msg-area');
 let subForm = document.querySelector('.sendForm');
 let input = document.querySelector('.inp');
@@ -71,11 +76,7 @@ function append(message, position, avatar) {
     msgParentDiv.appendChild(newMsg);
 
     messageArea.appendChild(msgParentDiv);
-}
-
-function scrollToBottom() {
-    const chatContainer = document.querySelector('.msg-area');
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    scrollToBottom();
 }
 
 const copyBtn = document.querySelector('.cpyBtn');
