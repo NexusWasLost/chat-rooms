@@ -7,7 +7,8 @@
   color: #181a1b;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -137,7 +138,7 @@ h1 {
 }
 
 .nicknameInp {
-  width: 100%;
+  width: 250px;
   height: 50px;
   border-radius: 8px;
   margin: 10px 0 10px 0;
@@ -160,7 +161,7 @@ h1 {
 
 .hostButton,
 .joinButton {
-  width: 40%;
+  width: 250px;
   height: 50px;
   font-size: larger;
   border: none;
@@ -169,7 +170,7 @@ h1 {
 }
 
 .roomid {
-  width: 40%;
+  width: 250px;
   height: 50px;
   border-radius: 8px;
   margin: 10px 0 10px 0;
@@ -188,48 +189,29 @@ h1 {
   padding-left: 100px;
 }
 
-@media (max-width: 1024px) {
-  .mainForm {
-    width: 50%;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  .nicknameInp{
-    width: 90%;
-  }
-
-  .roomid{
-    width: 50%;
-  }
-
-  /* .hostButton, .joinButton {
-    width: 50%;
-  } */
-}
-
 @media (max-width: 768px) {
   .mainForm {
     width: 70%;
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
-  .nicknameInp{
-    width: 95%;
+  .nicknameInp,
+  .roomid {
+    width: 175px;
   }
 
-  .roomid{
-    width: 40%;
+  .hostButton,
+  .joinButton {
+    width: 175px;
+    font-size: large;
   }
-/* 
-  .hostButton, .joinButton {
-    width: 60%;
-  } */
+
+  .nickname h2, .host h2, .join h2{
+    font-size: large;
+  }
 }
 
 @media (max-width: 480px) {
@@ -238,22 +220,29 @@ h1 {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
-  .nicknameInp{
-    width: 100%;
+  .nicknameInp,
+  .roomid {
+    width: 150px;
+    font-size: medium;
   }
 
-  .roomid{
-    width: 50%;
+  .hostButton,
+  .joinButton {
+    width: 150px;
   }
 
-  /* .hostButton, .joinButton {
-    width: 80%;
-  } */
+  input::placeholder{
+    font-size: 14px;
+  }
 
   .heading {
     margin-bottom: 30px;
+  }
+
+  .nickname h2, .host h2, .join h2{
+    font-size: medium;
   }
 }
