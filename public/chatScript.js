@@ -30,7 +30,7 @@ getAndSetInfo();
 
 async function getAvatar() {
     const randomSeed = Math.floor(Math.random() * 1000000);
-    let avatar = await fetch(`https://api.dicebear.com/9.x/thumbs/svg?seed=${randomSeed}`);
+    let avatar = await fetch(`https://api.dicebear.com/9.x/notionists/svg?seed=${randomSeed}`);
     avatar = await avatar.text();
     globalAvatar = avatar;
 
@@ -79,7 +79,9 @@ function append(message, position, avatar) {
     scrollToBottom();
 }
 
-const copyBtn = document.querySelector('.cpyBtn');
+const copyBtn = document.querySelector('.copyButton');
+const copyIcon = document.querySelector('.fa-copy');
+const checkIcon = document.querySelector('.fa-check');
 copyBtn.addEventListener('click', () =>{
 
     // Get the text input element
@@ -88,9 +90,19 @@ copyBtn.addEventListener('click', () =>{
     
     // Copy the text
     navigator.clipboard.writeText(textToCopy);
-    copyBtn.innerText = 'Copied';
 
-    setInterval( () =>{ copyBtn.innerText = 'Copy'; }, 2000);
+    //change styles
+    copyIcon.style.display = 'none';
+    checkIcon.style.display = 'inline-block';
+
+    //prevent multiple clicks
+    copyBtn.disabled = true;
+
+    setInterval( () =>{ 
+        copyIcon.style.display = 'inline-block';
+        checkIcon.style.display = 'none';
+        copyBtn.disabled = false;
+    }, 2500);
 })
 
 subForm.addEventListener('submit', (e) => {

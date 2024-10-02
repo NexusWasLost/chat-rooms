@@ -3,153 +3,134 @@
   margin: 0;
   font-weight: 500;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Lexend Deca", sans-serif;
   color: #181a1b;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #E8E8FF; */
+  background: linear-gradient(to bottom right, #FF0000, #8000FF, #00AFFF);
 }
 
-body {
-  background: #F5F3FF;
-}
-
-/* @keyframes color {
-  0%,
-  25% {
-    --bg: var(--c3);
-  }
-  26%,
-  50% {
-    --bg: var(--c1);
-  }
-  51%,
-  75% {
-    --bg: var(--c3);
-  }
-  76%,
-  100% {
-    --bg: var(--c2);
-  }
-}
-
-@keyframes position {
-  0% {
-    background-position: calc(var(--p) * 1) calc(var(--p) * 0),
-      calc(var(--p) * -1) calc(var(--p) * 1),
-      calc(var(--p) * 1) calc(var(--p) * -1),
-      calc(var(--p) * -1) calc(var(--p) * 0);
-  }
-  25% {
-    background-position: calc(var(--p) * 1) calc(var(--p) * 4),
-      calc(var(--p) * -1) calc(var(--p) * 5),
-      calc(var(--p) * 1) calc(var(--p) * 3),
-      calc(var(--p) * -1) calc(var(--p) * 4);
-  }
-  50% {
-    background-position: calc(var(--p) * 3) calc(var(--p) * 8),
-      calc(var(--p) * -3) calc(var(--p) * 9),
-      calc(var(--p) * 2) calc(var(--p) * 7),
-      calc(var(--p) * -2) calc(var(--p) * 8);
-  }
-  75% {
-    background-position: calc(var(--p) * 3) calc(var(--p) * 12),
-      calc(var(--p) * -3) calc(var(--p) * 13),
-      calc(var(--p) * 2) calc(var(--p) * 11),
-      calc(var(--p) * -2) calc(var(--p) * 12);
-  }
-  100% {
-    background-position: calc(var(--p) * 5) calc(var(--p) * 16),
-      calc(var(--p) * -5) calc(var(--p) * 17),
-      calc(var(--p) * 5) calc(var(--p) * 15),
-      calc(var(--p) * -5) calc(var(--p) * 16);
-  }
-}
-
-@media (prefers-reduced-motion) {
-  body {
-    animation: none;
-  }
-} */
-
-.chat-container {
-  width: 60%;
-  height: 80%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 12px;
-  background-color: #f8f8ff;
+.container {
+  width: 550px;
+  height: 760px;
+  max-height: 760px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.display {
-  height: 90%;
-  width: 100%;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  background-color: rgba(242, 242, 242, 0.5);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  overflow: hidden;
 }
 
 .info {
-  width: 20%;
-  height: 80%;
-  padding: 10px;
+  width: 100%;
+  height: 110px;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  background-color: #dcdcdc;
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 12px;
+  padding-left: 25px;
 }
 
 .profilePic {
-  width: 175px;
-  height: 175px;
-  border: none;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  margin: 20px 0 20px 0;
+  margin: 10px 0;
 }
 
 .profilePic svg {
   border-radius: 50%;
 }
 
-.msgSVG {
-  width: 25px;
-  height: 25px;
+.nameAndRoomId {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  margin: 16px 0 0 18px;
+}
+
+.joinedInAs,
+.user {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.roomId{
+  margin-top: 10px;
+}
+
+.copyButton {
   border: none;
-  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.fa-check {
+  display: none;
+}
+
+.chat-container {
+  width: 550px;
+  height: 100%;
+  max-height: 760px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 25px 25px 15px 15px;
+  padding: 10px;
+}
+
+.display {
+  width: 100%;
+  height: 100%;
+  max-height: 550px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .msg-area {
   width: 100%;
   height: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
-  margin: 10px 0 10px 0;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  overflow-y: scroll;
 }
 
-.message{
-  width: auto;
-  max-width: 250px;
-  max-inline-size: 70%;
-  overflow-wrap: break-word;
+.msg-area::-webkit-scrollbar {
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+.msg-area::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+.message {
+  max-width: 70%;
   word-wrap: break-word;
-  height: auto;
-  border: none;
   border-radius: 8px;
   padding: 10px;
-  margin: 15px;
-  background-color: dodgerblue;
+  margin: 10px 0;
+  background-color: rgba(242, 242, 242, 0.6);
   color: white;
   display: flex;
 }
@@ -176,41 +157,26 @@ body {
 
 .sendForm {
   width: 100%;
-  height: 100%;
+  height: 90px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .inp {
-  width: 90%;
+  width: calc(100% - 85px);
   height: 50px;
   padding: 10px;
   margin: 10px;
   border: none;
   border-radius: 5px;
   outline: none;
-  background-color: rgb(249, 165, 179);
+  background-color: rgba(242, 242, 242, 0.6);
   color: #181a1b;
 }
 
-.inp::placeholder{
+.inp::placeholder {
   color: #181a1b;
-}
-
-.copyButton {
-  margin: 20px;
-}
-
-.copyButton > button {
-  padding: 8px;
-  background-color: transparent;
-  border: 2px solid black;
-  border-radius: 8px;
-}
-
-.cpyBtn:hover {
-  cursor: pointer;
 }
 
 .btn {
@@ -219,17 +185,124 @@ body {
   padding: 5px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(249, 165, 179);
+  background-color: rgba(242, 242, 242, 0.6);
   font-size: 25px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn:hover {
-  transition-duration: 0.2s;
-  cursor: pointer;
-  background-color: rgb(254, 112, 136);
+  background-color: rgba(242, 242, 242, 0.8);
 }
 
 .btn:not(:hover) {
-  transition-duration: 0.2s;
-  background-color: rgb(249, 165, 179);
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+@media(max-width: 768px) {
+  .container {
+    width: 100%;
+    height: 100dvh;
+    max-height: 100vh;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-container {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .info {
+    padding-left: 15px;
+    height: 110px;
+  }
+
+  .profilePic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nameAndRoomId {
+    font-size: 20px;
+    margin: 20px 0 0 15px;
+  }
+
+  .joinedInAs, .user {
+    font-size: 20px;
+  }
+
+  .display {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100dvh - 200px);  /*full dynamic height minus info height(110px) + msg form height(90px)*/
+  }
+
+  .msg-area {
+    width: 100%;
+    height: 100%;
+    max-height: calc(100dvh - 200px);
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .inp {
+    width: calc(100% - 75px);
+  }
+
+  .send-msg {
+    height: 90px;
+    flex-shrink: 0;
+  }
+
+  .sendForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media(max-width: 500px){
+  .info {
+    padding-left: 10px;
+  }
+
+  .profilePic {
+    width: 65px;
+    height: 65px;
+  }
+
+  .nameAndRoomId {
+    font-size: 16px;
+    margin: 15px 0 0 10px;
+  }
+
+  .roomId{
+    margin-top: 8px;
+  }
+}
+
+@media(max-width: 410px){
+  .profilePic {
+    width: 55px;
+    height: 55px;
+  }
+
+  .nameAndRoomId {
+    font-size: 12px;
+    margin: 10px 0 0 8px;
+  }
+
+  .roomId{
+    margin-top: 5px;
+  }
 }
