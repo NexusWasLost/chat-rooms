@@ -2,7 +2,7 @@
 
 A Simple Chat Application built using WebSockets and NodeJS
 
-## Deployed 
+## Deployement
 
 https://chat-rooms-e9ev.onrender.com/
 
