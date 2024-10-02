@@ -1,6 +1,8 @@
 # Chat Rooms
 
-A Chat Application built using WebSockets and NodeJS
+A Simple Chat Application built using WebSockets and NodeJS
+
+## Deployed: https://chat-rooms-e9ev.onrender.com/
 
 ## Tech Stack
 
@@ -49,6 +51,7 @@ Web Sockets are responsible for establishing a full duplex connection between se
 
 This application uses [Socket.io](https://socket.io/) Library to establish a web socket connection and provides easy-to-use API for the purpose.
 
-## Credits 
+## Additional Credits 
 
-- TO BE FOLLOWED UP
+- Dipanjan -> https://github.com/itsdstar
+- ChatGPT -> https://chatgpt.com/
