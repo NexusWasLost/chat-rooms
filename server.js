@@ -5,14 +5,14 @@ const app = express();
 const { createServer } = require('node:http');
 const path = require('node:path');
 const { Server } = require('socket.io');
-const shortUUID = require('short-uuid');
+const shortUniqueId = require('short-unique-id');
 const db = require('./DB/db.js');
 const Room = require('./DB/dbModel.js');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const server = createServer(app);
-const io = new Server(server); 
+const io = new Server(server);
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
@@ -24,28 +24,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get('/', async (req, res) =>{
-    try{
-        res.status(200).sendFile(path.join(__dirname ,'./pages/index.html'));
+app.get('/', async (req, res) => {
+    try {
+        res.status(200).sendFile(path.join(__dirname, './pages/index.html'));
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         res.status(500).send("Some Error Occured !");
     }
 })
 
-app.get('/info', async (req, res) =>{
-    try{
+app.get('/info', async (req, res) => {
+    try {
         let nickname = req.cookies.nickname;
         let roomId = req.cookies.roomId;
-       
+
         //clear cookies
         res.clearCookie('nickname');
         res.clearCookie('roomId');
 
-        res.status(200).json({'nickname': nickname, 'roomId': roomId});
+        res.status(200).json({ 'nickname': nickname, 'roomId': roomId });
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         res.status(500).send("Some Error Occured !");
     }
@@ -53,27 +53,28 @@ app.get('/info', async (req, res) =>{
 
 //get the nickname and room id from the home page !
 app.post('/', async (req, res) => {
-    try{
+    try {
         const { nicknameValue, roomIdValue } = req.body;
-        if(!nicknameValue) return res.status(400).send("Nickname is required !");
+        if (!nicknameValue) return res.status(400).send("Nickname is required !");
 
         let nickname = nicknameValue;
         let roomId;
 
         //user requested to host a room
-        if(!roomIdValue) {
-            
+        if (!roomIdValue) {
+
             //generate room id until an unique one is not found !
-            do{
-                roomId = shortUUID.generate();
-            }while(await Room.exists({ roomId }));
-            
+            do {
+                const { randomUUID } = new shortUniqueId({ length: 10 });
+                roomId = randomUUID();
+            } while (await Room.exists({ roomId }));
+
             const newRoom = new Room({ roomId });
             await newRoom.save();
         }
-        else{
+        else {
             const checkRoom = await Room.findOne({ roomId: roomIdValue });
-            if(!checkRoom) return res.status(404).send("Room does not exists !");
+            if (!checkRoom) return res.status(404).send("Room does not exists !");
 
             roomId = checkRoom.roomId;
         }
@@ -83,28 +84,28 @@ app.post('/', async (req, res) => {
         res.cookie('roomId', roomId, { httpOnly: true });
         res.status(200).redirect(`/chat/${roomId}`);
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         res.status(500).send("Some Error Occured !");
     }
 })
 
-app.get('/chat/:roomid', async (req, res) =>{
-    try{
+app.get('/chat/:roomid', async (req, res) => {
+    try {
 
-        if(!req.cookies.nickname){
+        if (!req.cookies.nickname) {
             return res.status(200).redirect('/');
         }
-        
+
         res.status(200).sendFile(path.join(__dirname, './pages/chat.html'));
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         res.status(500).send("Some Error Occured !");
     }
 })
 
-io.on('connection', socket =>{
+io.on('connection', socket => {
 
     //retrieve required parameter from the initial handshake
     const { nickname, roomId } = socket.handshake.query;
@@ -132,5 +133,5 @@ io.on('connection', socket =>{
             await Room.findOneAndDelete({ roomId });
             console.log(`Room ${roomId} deleted from database`);
         }
-    })    
+    })
 })
