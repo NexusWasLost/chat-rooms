@@ -6,6 +6,8 @@ A Simple Chat Application built using WebSockets and NodeJS
 
 https://chat-rooms-e9ev.onrender.com/
 
+**NOTE:** The project is hosted on [Render](https://render.com/), on its free plan. So the app will automatically go to sleep when inactive, therefore the next time someone visits it will take some time to load up.
+
 ## Tech Stack
 
 **Client:** HTML, CSS and JavaScript
