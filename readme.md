@@ -1,6 +1,6 @@
 # Chat Rooms
 
-A Simple Chat Application built using WebSockets and NodeJS
+A Simple Chat Application built using WebSockets and Node.js
 
 ## Deployement
 
@@ -12,7 +12,7 @@ https://chat-rooms-e9ev.onrender.com/
 
 **Client:** HTML, CSS and JavaScript
 
-**Server:** Node, Express, Socket.io and MongoDB
+**Server:** Node.js, Express.js, Socket.io and MongoDB
 
 ## Features
 
@@ -35,15 +35,20 @@ Make Sure You have Node, NPM and MongoDB already installed !
 
 1. **Clone the Repository:**
 ```bash
-  git clone https://github.com/0x3DNexus/chat-rooms.git
+  git clone https://github.com/nexus949/chat-rooms.git
+```
+
+2. **Navigate to the directory:**
+```bash
   cd chat-rooms
 ```
-2. **Install all the dependencies:**
+
+3. **Install all the dependencies:**
 ```bash
   npm install
 ```
 
-3. **Start the server:**
+4. **Start the server:**
 ```bash
   npm start
 ``` 
@@ -55,7 +60,7 @@ Web Sockets are responsible for establishing a full duplex connection between se
 
 This application uses [Socket.io](https://socket.io/) Library to establish a web socket connection and provides easy-to-use API for the purpose.
 
-## Additional Credits 
+## AI and tools used
 
-- Dipanjan -> https://github.com/itsdstar
+- Socket.io -> https://socket.io/
 - ChatGPT -> https://chatgpt.com/
