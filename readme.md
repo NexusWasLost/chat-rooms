@@ -18,7 +18,7 @@ https://chat-rooms-e9ev.onrender.com/
 
 - Real Time Communication between client and server using Socket.io
 - Uses MongoDB and Mongoose to store active rooms only.
-- Automatic Room expiry if no participants are present. 
+- Automatic Room expiry if no participants are present.
 - Ensures complete privacy and safety by not storing any messages on the server.
 - Features an easy-to-navigate UI for a smooth chatting experience.
 
@@ -31,11 +31,11 @@ Make Sure You have Node, NPM and MongoDB already installed !
 **Download Node:** https://nodejs.org/en
 
 **Download MongoDB(Community Server):** https://www.mongodb.com/try/download/community
- 
+
 
 1. **Clone the Repository:**
 ```bash
-  git clone https://github.com/nexus949/chat-rooms.git
+  git clone https://github.com/NexusWasLost/chat-rooms.git
 ```
 
 2. **Navigate to the directory:**
@@ -51,7 +51,7 @@ Make Sure You have Node, NPM and MongoDB already installed !
 4. **Start the server:**
 ```bash
   npm start
-``` 
+```
 
 The server runs on PORT 3000 !
 
